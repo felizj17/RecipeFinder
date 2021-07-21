@@ -28,7 +28,7 @@ const Recipe = (props) => {
         <div className="text-start ms-1 pb-5">
           <h3 className="ms-1 mb-3" >Ingredients</h3>
             {props.ingredients.map(ingredients=>(
-              <div className="w-75 ms-2 mb-2">
+              <div key={`ing${ingredients.foodId}`} className="w-75 ms-2 mb-2">
                 <p className="ms-3">-{ingredients.text}</p>
               </div>
             ))

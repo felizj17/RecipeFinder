@@ -1,12 +1,13 @@
 import React, {useEffect, useState } from 'react';
 import Recipe from "./Recipe";
 import './App.css';
-
+import {ReactComponent as ReactLogo } from './images/logo.svg'
+require('dotenv').config() 
 const App=()=>{
 
 
-  const APP_ID="98fb884e";
-  const APP_KEY="e7d2c2d8c0a5a798d0b55a8a4e6a671c" 
+  const APP_ID = process.env.REACT_APP_APP_ID;
+  const APP_KEY = process.env.REACT_APP_APP_KEY 
   const exampleRequest=`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
   const [recipes,setRecipes] = useState([]);
   const [search,setSearch] = useState('');
@@ -33,7 +34,7 @@ const App=()=>{
 
       <div className="container">
         <header className="title">
-          <h1>Recipe Finder</h1>
+          <h1><ReactLogo className="me-3 align-top" style={{width:'3rem'}}/>Recipe Locator</h1>
         </header>
         
         <form onSubmit ={getSearch} className ="searchForm mb-3 w-100">
